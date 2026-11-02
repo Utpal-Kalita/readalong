@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReadAlong - every text, read aloud with you</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-contrast="cream">
+<header>
+  <div class="brand">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3d6fb4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 8c2-1.2 4.5-1.2 7 0 2.5-1.2 5-1.2 7 0v11c-2-1.2-4.5-1.2-7 0-2.5-1.2-5-1.2-7 0z"/></svg>
+    <div>
+      <h1>ReadAlong</h1>
+      <p class="tagline">Paste any lesson. Listen and follow along, at your pace, in your type.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="input-panel" id="inputPanel">
+    <label for="text">Your text - a lesson, article, worksheet, anything</label>
+    <textarea id="text" rows="6" placeholder="Paste or type the text you want to hear and follow. Everything stays in this browser."></textarea>
+    <div class="row">
+      <button id="loadBtn" class="cta">Prepare reading</button>
+      <span class="samples-label">Or try a sample:</span>
+      <button class="sample" data-sample="science">Science lesson</button>
+      <button class="sample" data-sample="history">History passage</button>
+    </div>
+  </section>
+
+  <section id="reader" hidden>
+    <div class="toolbar">
+      <button id="playBtn" class="cta">▶ Read aloud</button>
+      <button id="stopBtn">■ Stop</button>
+      <label>Speed <input id="rate" type="range" min="0.5" max="1.6" step="0.1" value="1"><span id="rateVal">1.0×</span></label>
+      <span id="modeNote" class="mode-note"></span>
+    </div>
+    <div class="toolbar settings">
+      <label>Text size <input id="fontSize" type="range" min="16" max="30" value="20"></label>
+      <label>Letter spacing <input id="spacing" type="range" min="0" max="6" value="1"></label>
+      <label>Line height <input id="lineHeight" type="range" min="14" max="26" value="19"></label>
+      <div class="contrasts">
+        <button data-contrast="cream" class="on">Cream</button>
+        <button data-contrast="dark">Dark</button>
+        <button data-contrast="hc">High contrast</button>
+      </div>
+    </div>
+    <article id="page" class="page" tabindex="0" aria-label="Reading area"></article>
+    <p class="hint">Click any sentence to start reading from there. Word-by-word tracking appears where the browser's speech engine reports word positions (Chrome, Edge); otherwise ReadAlong follows sentence by sentence - you will see which mode is active above.</p>
+  </section>
+</main>
+
+<footer>
+  <p>ReadAlong itself uploads nothing and needs no account. Reading aloud uses your browser's built-in speech engine, which on some devices may need a connection. Built for AccessED Hacks.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
